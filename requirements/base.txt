@@ -1,0 +1,7 @@
+Django==2.0.7
+django-cities==0.5.0.6
+django-environ==0.4.5
+django-model-utils==3.1.2
+djangorestframework==3.8.2
+drf-nested-routers==0.90.2
+psycopg2==2.7.5

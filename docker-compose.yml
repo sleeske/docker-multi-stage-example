@@ -1,0 +1,27 @@
+version: '3'
+services:
+  postgres:
+    image: mdillon/postgis:10-alpine
+    environment:
+      - PGDATA=/var/lib/postgresql/data
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+    command: local
+    ports:
+      - '8000:8000'
+    env_file:
+      - .env
+    volumes:
+      - ./src:/code
+      - cities:/var/data/cities
+
+volumes:
+  data:
+    driver: local
+  cities:
+    driver: local
