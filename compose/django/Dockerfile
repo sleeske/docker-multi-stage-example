@@ -41,9 +41,8 @@ RUN pip install -U pip \
         && rm -rf /wheels \
         && rm -rf /root/.cache/pip/*
 
-COPY ./entrypoint.sh /
-
 WORKDIR /code
 COPY ./src /code
 
+COPY ./entrypoint.sh /
 ENTRYPOINT [ "/entrypoint.sh" ]
