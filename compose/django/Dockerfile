@@ -36,10 +36,10 @@ RUN apk add --no-cache \
 
 COPY --from=builder /wheels /wheels
 RUN pip install -U pip \
-        && pip install -r /wheels/requirements/dev.txt \
+        && pip install --no-cache-dir \
+                       -r /wheels/requirements/dev.txt \
                        -f /wheels \
-        && rm -rf /wheels \
-        && rm -rf /root/.cache/pip/*
+        && rm -rf /wheels
 
 WORKDIR /code
 COPY ./src /code
